@@ -1,0 +1,15 @@
+/* Semantic colors */
+@charset "UTF-8";
+
+:root {
+	--background-color: var(--base);
+
+	--text-color: var(--text);
+	--primary-color: var(--mauve);
+	--link-color: var(--blue);
+
+	--info: var(--blue);
+	--success: var(--green);
+	--warning: var(--yellow);
+	--error: var(--red);
+}
