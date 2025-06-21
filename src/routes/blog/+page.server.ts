@@ -19,7 +19,8 @@ export const load: PageServerLoad = async () => {
 
 	const posts = await Promise.all(postPromises);
 	const publishedPosts = posts
-		.filter((post) => post.published)
+		// Include unpublished posts in dev mode
+		.filter((post) => post.published || import.meta.env.DEV)
 		.slice(0, MAX_POSTS)
 		.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
 

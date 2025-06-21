@@ -12,10 +12,10 @@
 
 <PageHead title="Posts" description="Thoughts and insights about open source development." />
 
-{#each data.posts as { slug, title, author, description, date }}
+{#each data.posts as { slug, title, author, description, date, published }}
 	<Article>
 		<ArticleTitle {slug} {title} />
-		<ArticleMeta {author} {date} />
+		<ArticleMeta {author} {date} {published} />
 		<ArticleDescription {description} {slug} />
 	</Article>
 {/each}
