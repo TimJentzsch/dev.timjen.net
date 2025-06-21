@@ -1,14 +1,15 @@
 import type { PageLoad } from './$types';
 import { slugFromPath } from '$lib/slugFromPath';
 import { error } from '@sveltejs/kit';
+import type { MdsvexResolver } from '$lib/blog';
 
 export const load: PageLoad = async ({ params }) => {
 	const modules = import.meta.glob(`/src/blog/*.{md,svx,svelte.md}`);
 
-	let match: { path?: string; resolver?: App.MdsvexResolver } = {};
+	let match: { path?: string; resolver?: MdsvexResolver } = {};
 	for (const [path, resolver] of Object.entries(modules)) {
 		if (slugFromPath(path) === params.slug) {
-			match = { path, resolver: resolver as unknown as App.MdsvexResolver };
+			match = { path, resolver: resolver as unknown as MdsvexResolver };
 			break;
 		}
 	}

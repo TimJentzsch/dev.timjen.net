@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import type { SvelteComponentTyped } from 'svelte';
+	import type { Component } from 'svelte';
 
 	import PageHead from '$lib/components/PageHead.svelte';
 	import ArticleTitle from '$lib/components/ArticleTitle.svelte';
@@ -8,8 +8,7 @@
 
 	export let data: PageData;
 
-	type C = $$Generic<typeof SvelteComponentTyped<any, any, any>>;
-	$: component = data.component as unknown as C;
+	$: component = data.component as unknown as Component;
 </script>
 
 <PageHead title={data.frontmatter.title} description={data.frontmatter.description} />
