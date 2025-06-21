@@ -1,3 +1,7 @@
+:root {
+	--spacing-unit: 1rem;
+}
+
 body {
 	background-color: var(--background-color);
 	color: var(--text-color);
