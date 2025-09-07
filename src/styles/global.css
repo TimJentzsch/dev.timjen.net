@@ -1,8 +1,10 @@
 :root {
-	--spacing-unit: 1rem;
+	--spacing: 0.5rem;
 }
 
 body {
+	margin: 0;
+
 	background-color: var(--background-color);
 	color: var(--text-color);
 

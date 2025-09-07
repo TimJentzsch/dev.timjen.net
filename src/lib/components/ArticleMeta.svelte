@@ -17,6 +17,6 @@
 <style>
 	.author {
 		font-weight: bold;
-		margin-right: var(--spacing-unit);
+		margin-right: var(--spacing);
 	}
 </style>
