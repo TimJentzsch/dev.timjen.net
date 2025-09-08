@@ -1,9 +1,12 @@
 <script lang="ts">
-	export let author: string;
-	export let date: string;
-	export let published: boolean;
+	interface Props {
+		author: string;
+		date: string;
+		published: boolean;
+	}
 
-	const formattedDate = new Date(date).toDateString();
+	const { author, date, published }: Props = $props();
+	const formattedDate = $derived(new Date(date).toDateString());
 </script>
 
 <p>

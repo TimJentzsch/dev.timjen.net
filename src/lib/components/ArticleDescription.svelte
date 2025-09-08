@@ -1,8 +1,11 @@
 <script lang="ts">
-	export let description: string;
-	export let slug = '';
+	interface Props {
+		description: string;
+		slug?: string;
+	}
 
-	const href = slug && `/blog/${slug}`;
+	const { description, slug = '' }: Props = $props();
+	const href = $derived(slug && `/blog/${slug}`);
 </script>
 
 <p>

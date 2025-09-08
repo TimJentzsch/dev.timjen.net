@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let slug = '';
-	export let title: string;
+	interface Props {
+		slug?: string;
+		title: string;
+	}
+
+	const { slug = '', title }: Props = $props();
 
 	const id = title
 		.toLowerCase()

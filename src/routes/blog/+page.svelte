@@ -7,17 +7,20 @@
 	import ArticleMeta from '$lib/components/ArticleMeta.svelte';
 	import ArticleDescription from '$lib/components/ArticleDescription.svelte';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+	const { posts } = data;
 </script>
 
 <PageHead title="Posts" description="Thoughts and insights about open source development." />
 
-{#each data.posts as { slug, title, author, description, date, published }}
+{#each posts as { slug, title, author, description, date, published }}
 	<Article>
 		<ArticleTitle {slug} {title} />
 		<ArticleMeta {author} {date} {published} />
 		<ArticleDescription {description} {slug} />
 	</Article>
 {/each}
-
-<slot />
