@@ -41,7 +41,7 @@
 	}
 
 	li {
-		background-color: var(--surface0);
+		background-color: var(--mantle);
 		padding: var(--spacing1) var(--spacing2);
 		border-radius: var(--radius);
 	}
