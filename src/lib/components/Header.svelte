@@ -10,7 +10,7 @@
 </script>
 
 <header>
-	<a id="websiteName" href="/">timjen</a>
+	<a id="websiteName" href="/">tim’s</a>
 	<nav>
 		<div class="links">
 			<HeaderLink href="/blog" {path}>blog</HeaderLink>
@@ -18,7 +18,7 @@
 		<div class="icons">
 			<HeaderIcon
 				alt="BlueSky"
-				href="https://bsky.app/profile/opensource.timjen.net"
+				href="https://bsky.app/profile/dev.timjen.net"
 				srcDark="/icons/bluesky-dark.svg"
 				srcLight="/icons/bluesky-light.svg"
 			/>
