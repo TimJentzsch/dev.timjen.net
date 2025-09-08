@@ -17,8 +17,14 @@
 		</div>
 		<div class="icons">
 			<HeaderIcon
-				href="https://github.com/TimJentzsch"
+				alt="BlueSky"
+				href="https://bsky.app/profile/opensource.timjen.net"
+				srcDark="/icons/bluesky-dark.svg"
+				srcLight="/icons/bluesky-light.svg"
+			/>
+			<HeaderIcon
 				alt="GitHub"
+				href="https://github.com/TimJentzsch"
 				srcDark="/icons/github-dark.svg"
 				srcLight="/icons/github-light.svg"
 			/>
@@ -33,7 +39,7 @@
 
 		padding: var(--spacing1) var(--spacing2);
 		gap: var(--spacing2);
-		background-color: var(--surface0);
+		background-color: var(--mantle);
 
 		font-size: 1.5rem;
 	}
@@ -60,6 +66,7 @@
 	.icons {
 		display: flex;
 		flex-flow: row;
-		gap: var(--spacing1);
+		align-items: center;
+		gap: var(--spacing2);
 	}
 </style>
