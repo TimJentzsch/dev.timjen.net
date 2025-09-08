@@ -20,8 +20,7 @@
 		display: flex;
 		align-items: baseline;
 
-		width: 100%;
-		padding: var(--spacing);
+		padding: var(--spacing) var(--spacing2);
 		gap: var(--spacing);
 		background-color: var(--surface0);
 

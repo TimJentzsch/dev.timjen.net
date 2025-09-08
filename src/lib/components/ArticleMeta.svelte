@@ -22,4 +22,8 @@
 		font-weight: bold;
 		margin-right: var(--spacing);
 	}
+
+	.draft {
+		color: var(--warning);
+	}
 </style>

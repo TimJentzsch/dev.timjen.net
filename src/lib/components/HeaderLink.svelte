@@ -19,7 +19,7 @@
 
 	a:hover,
 	a.isActive {
-		color: var(--link-color);
+		color: var(--secondary-color);
 	}
 
 	a:hover {

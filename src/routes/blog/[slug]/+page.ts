@@ -21,7 +21,7 @@ export const load: PageLoad = async ({ params }) => {
 	}
 
 	return {
-		frontmatter: post.metadata,
+		metadata: post.metadata,
 		Content: post.default
 	};
 };

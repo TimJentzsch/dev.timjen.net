@@ -17,6 +17,6 @@
 
 <style>
 	main {
-		padding: var(--spacing);
+		padding: var(--spacing2);
 	}
 </style>

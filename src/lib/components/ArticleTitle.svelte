@@ -21,9 +21,7 @@
 		</a>
 	</h3>
 {:else}
-	<h2 class="heading" {id}>
-		<a {href}>
-			{title}
-		</a>
-	</h2>
+	<h1 class="heading" {id}>
+		{title}
+	</h1>
 {/if}

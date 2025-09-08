@@ -2,11 +2,12 @@
 @charset "UTF-8";
 
 :root {
-	--background-color: var(--base);
+	--primary-color: var(--mauve);
+	--secondary-color: var(--blue);
 
 	--text-color: var(--text);
-	--primary-color: var(--mauve);
 	--link-color: var(--blue);
+	--background-color: var(--base);
 
 	--info: var(--blue);
 	--success: var(--green);
