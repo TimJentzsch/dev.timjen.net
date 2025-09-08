@@ -20,8 +20,8 @@
 		display: flex;
 		align-items: baseline;
 
-		padding: var(--spacing) var(--spacing2);
-		gap: var(--spacing);
+		padding: var(--spacing1) var(--spacing2);
+		gap: var(--spacing2);
 		background-color: var(--surface0);
 
 		font-size: 1.5rem;
@@ -40,6 +40,6 @@
 	nav {
 		display: flex;
 		flex-flow: row;
-		gap: var(--spacing);
+		gap: var(--spacing1);
 	}
 </style>

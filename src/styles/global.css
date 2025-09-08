@@ -1,6 +1,8 @@
 :root {
-	--spacing: 0.5rem;
-	--spacing2: calc(2 * var(--spacing));
+	--spacing1: 0.5rem;
+	--spacing2: calc(2 * var(--spacing1));
+
+	--radius: 0.5rem;
 }
 
 body {

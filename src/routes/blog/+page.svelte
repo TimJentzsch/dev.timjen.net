@@ -16,10 +16,33 @@
 
 <PageHead title="Posts" description="Thoughts and insights about open source development." />
 
-{#each posts as { slug, title, author, description, date, published }}
-	<article>
-		<ArticleTitle {slug} {title} />
-		<ArticleMeta {author} {date} {published} />
-		<ArticleDescription {description} {slug} />
-	</article>
-{/each}
+<h1>Blog posts</h1>
+
+<ul class="posts">
+	{#each posts as { slug, title, author, description, date, published }}
+		<li>
+			<article>
+				<ArticleTitle {slug} {title} />
+				<ArticleMeta {author} {date} {published} />
+				<ArticleDescription {description} {slug} />
+			</article>
+		</li>
+	{/each}
+</ul>
+
+<style>
+	ul {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		gap: var(--spacing1);
+
+		list-style: none;
+	}
+
+	li {
+		background-color: var(--surface0);
+		padding: var(--spacing1) var(--spacing2);
+		border-radius: var(--radius);
+	}
+</style>

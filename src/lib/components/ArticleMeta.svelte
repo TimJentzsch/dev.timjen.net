@@ -20,7 +20,7 @@
 <style>
 	.author {
 		font-weight: bold;
-		margin-right: var(--spacing);
+		margin-right: var(--spacing1);
 	}
 
 	.draft {
