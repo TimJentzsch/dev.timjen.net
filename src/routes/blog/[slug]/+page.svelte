@@ -10,7 +10,7 @@
 	}
 
 	const { data }: Props = $props();
-	const { frontmatter } = data;
+	const { frontmatter, Content } = data;
 </script>
 
 <PageHead title={frontmatter.title} description={frontmatter.description} />
@@ -20,3 +20,4 @@
 	date={frontmatter.date}
 	published={!!frontmatter.published}
 />
+<Content />
