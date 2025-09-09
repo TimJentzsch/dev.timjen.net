@@ -36,3 +36,10 @@ h2 {
 a {
 	color: var(--link-color);
 }
+
+pre {
+	background-color: var(--mantle);
+	padding: var(--spacing1);
+	/* Only scroll code blocks, not the whole page */
+	overflow-x: auto;
+}
