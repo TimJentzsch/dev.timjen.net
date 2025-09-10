@@ -1,0 +1,125 @@
+/* Adopted from https://github.com/catppuccin/prismjs */
+/* https://prismjs.com/tokens.html */
+
+.token.keyword {
+	color: var(--mauve);
+}
+
+.token.builtin {
+	color: var(--red);
+}
+
+.token.class-name {
+	color: var(--yellow);
+}
+
+.token.function {
+	color: var(--blue);
+}
+
+.token.boolean,
+.token.number {
+	color: var(--peach);
+}
+
+.token.string,
+.token.char {
+	color: var(--green);
+}
+
+.token.symbol {
+	color: var(--yellow);
+}
+
+.token.regex {
+	color: var(--pink);
+}
+
+.token.url {
+	color: var(--green);
+}
+
+.token.operator {
+	color: var(--sky);
+}
+
+.token.variable {
+	color: var(--text);
+}
+
+.token.constant {
+	color: var(--peach);
+}
+
+.token.property {
+	color: var(--blue);
+}
+
+.token.punctuation {
+	color: var(--overlay2);
+}
+
+.token.important {
+	color: var(--mauve);
+}
+
+.token.comment {
+	color: var(--overlay2);
+}
+
+.token.tag {
+	color: var(--blue);
+}
+
+.token.attr-name {
+	color: var(--yellow);
+}
+
+.token.attr-value {
+	color: var(--green);
+}
+
+.token.namespace {
+	color: var(--yellow);
+}
+
+.token.prolog,
+.token.doctype {
+	color: var(--mauve);
+}
+
+.token.cdata {
+	color: var(--teal);
+}
+
+.token.entity {
+	color: var(--red);
+}
+
+.token.atrule {
+	color: var(--mauve);
+}
+
+.token.selector {
+	color: var(--blue);
+}
+
+/* Diff */
+
+.token.deleted {
+	color: var(--red);
+}
+
+.token.inserted {
+	color: var(--green);
+}
+
+/* Other */
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
