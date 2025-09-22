@@ -1,6 +1,6 @@
 {
-	"name": "opensource",
-	"private": true,
+	"name": "dev.timjen.net",
+	"author": "Tim Jentzsch",
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
