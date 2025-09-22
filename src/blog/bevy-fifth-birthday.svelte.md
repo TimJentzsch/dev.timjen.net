@@ -105,10 +105,45 @@ Fuck this, it's time to reach for some tooling to simplify this process.
 Luckily, we can reach for `trunk`, an amazing CLI tool for Rust web apps.
 
 ```sh
-$ trunk watch
+$ trunk serve
 2025-09-12T08:20:52.597193Z  INFO 🚀 Starting trunk 0.21.14
 2025-09-12T08:20:55.552734Z ERROR error getting the canonical path to the build target HTML file "/home/tim/dev/tests/blog_web_example/index.html"
 2025-09-12T08:20:55.552751Z  INFO   1: No such file or directory (os error 2)
 ```
 
-Oh, looks like we'll need an `index.html` after all.
+Oh, looks like we'll need an `index.html` after all, but that's simple to add:
+
+```html
+<html>
+	<head>
+		<link data-trunk rel="rust" />
+	</head>
+</html>
+```
+
+and finally:
+
+```sh
+$ trunk serve
+2025-09-12T12:51:47.695886Z  INFO 🚀 Starting trunk 0.21.14
+2025-09-12T12:51:48.730636Z  INFO 📦 starting build
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.31s
+2025-09-12T12:52:17.935361Z  INFO applying new distribution
+2025-09-12T12:52:17.955608Z  INFO ✅ success
+2025-09-12T12:52:17.960380Z  INFO 📡 serving static assets at -> /
+2025-09-12T12:52:17.960644Z  INFO 📡 server listening at:
+2025-09-12T12:52:17.960652Z  INFO     🏠 http://127.0.0.1:8080/
+2025-09-12T12:52:17.960656Z  INFO     🏠 http://[::1]:8080/
+2025-09-12T12:52:17.960767Z  INFO     🏠 http://localhost.:8080/
+```
+
+And when we visit <http://localhost:8888>, we get to see our "game"!
+Still, it leaves a bit to be desired:
+
+- We get to stare at a blank white screen while the game is loading in,
+- The Wasm is a chonky 173 MB binary, which takes a while to load,
+- Trunk doesn't know about Bevy's `asset` folder, so out of the box they won't load.
+
+## Time for a custom solution
+
+While `trunk` is a great tool, there is only so much you can do when you aim to be general-purpose.
