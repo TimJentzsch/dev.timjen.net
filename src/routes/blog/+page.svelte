@@ -27,6 +27,8 @@
 				<ArticleDescription {description} {slug} />
 			</article>
 		</li>
+	{:else}
+		Looks like the posts are still being written!
 	{/each}
 </ul>
 
