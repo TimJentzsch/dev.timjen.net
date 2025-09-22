@@ -12,6 +12,8 @@ RUN pnpm prune --prod
 
 # Deployment step
 FROM node:22-alpine
+# <https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images>
+LABEL org.opencontainers.image.source=https://github.com/TimJentzsch/dev.timjen.net
 WORKDIR /app
 
 COPY --from=builder /app/build build/
