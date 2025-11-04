@@ -147,3 +147,86 @@ Still, it leaves a bit to be desired:
 ## Time for a custom solution
 
 While `trunk` is a great tool, there is only so much you can do when you aim to be general-purpose.
+With the Bevy CLI prototype, we can make a lot more assumptions up-front.
+Most Bevy projects are structured the same way and need a similar setup and compiler settings to work well for the web.
+Good defaults matter, it's very frustrating to start out with Bevy and needing an hour or maybe even a day to figure out how to make the most simple web game run.
+Instead, we can craft a tool to make 80% of games run, even run _well_, out of the box.
+
+Let's take a look at how that looks like, by installing the current Bevy CLI prototype:
+
+```
+TODO installation
+```
+
+Now we can just execute
+
+```sh
+bevy run web --open
+```
+
+And the game will open in our browser!
+Under the hood, a lot is taken care for you:
+
+- Compiling the Rust program to Wasm
+- Creating JS bindings for the Wasm binary
+- Bundling your Bevy assets
+- Hosting a local web server
+- Serving an `index.html` if you didn't create one yourself
+
+## Design philosophy
+
+There are a couple of rules I try to follow when developing the Bevy CLI to make it a pleasant and consistent experience for users.
+
+### Familiar API
+
+Most users who want to work with Bevy, are already well familiar with Cargo.
+Whenever possible, we try to align the command interface and terminology to analogue Cargo commands, so you don't have to look them up every time.
+
+### Works out of the box
+
+It shouldn't be a big hassle to make a Bevy app work on the web.
+Of course, some features just don't work on the web that have native support.
+But wherever possible, the CLI should be able to deal with apps that have no web-specific configuration.
+A prime example of this is the default `index.html` and the automatic inclusion of the Bevy assets folder.
+
+### Good defaults
+
+The default Rust compiler configuration just doesn't work well for the web.
+For example, binary size is just a lot more important, as it can cause big delays to being able to start the game.
+The Bevy CLI provides different compilation profiles for Wasm by default, which are optimized for web usage out of the box.
+
+### Configurable
+
+While the default setup should work well for most users, especially when starting out, power users will want to optimize all settings to squeeze the most out of the game's performance and adjust everything to fit perfectly in their workflow.
+This is why we try to make all defaults transparent to the user and customizable when needed.
+All commands the CLI executes under the hood and all settings that are applied are logged in `--verbose` mode, so you can easily see what happens and even replace the Bevy CLI with a custom tool when you need full control.
+
+## Bevy CLI features
+
+With that out of the way, let me give you a more detailed overview of the features we have implemented so far for the web.
+
+### Automatic tool installation
+
+This is not specific to the web, but especially useful in this context.
+We depend on many external tools like `wasm-bindgen` here, so making them easy to set up is very important for new users (and even convenient for experienced ones).
+When something is missing, the CLI will ask you if it should perform the installation automatically for you.
+
+### Custom feature configuration
+
+With Bevy, you often want to use a different set of features on the web compared to native, in order to properly use functionality that is only supported on either platform.
+Similarly, you often want to enable additional functionality on dev compared to release builds, such as FPS monitors, editors, debug overlays, etc.
+This is a bit hard/annoying to do with Cargo itself, so we added additional support for it.
+
+### Rustflag merging
+
+TODO
+
+### Multi-threading support (experimental)
+
+As an experimental feature, we're trying to make it easier to build multi-threaded apps for the web. Right now, Bevy web apps are single threaded by default and quite hard to make multi-threaded, causing performance problems.
+Most noticeable, you can often get glitchy audio when the main thread is busy.
+Some plugins, like `bevy_seedling` are already experimenting with exposing multi-threaded functionality for the web to fix these issues.
+
+Unfortunately, _using_ this functionality is already a big pain.
+You have to set specific flags in Cargo, enable the correct Wasm features and configure the correct set of headers in your web server.
+The Bevy CLI can do all of this automatically for you when you set the `--unstable multi-threading` flag, all you need is a nightly Rust toolchain!
