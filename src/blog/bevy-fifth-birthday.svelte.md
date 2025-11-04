@@ -230,3 +230,33 @@ Some plugins, like `bevy_seedling` are already experimenting with exposing multi
 Unfortunately, _using_ this functionality is already a big pain.
 You have to set specific flags in Cargo, enable the correct Wasm features and configure the correct set of headers in your web server.
 The Bevy CLI can do all of this automatically for you when you set the `--unstable multi-threading` flag, all you need is a nightly Rust toolchain!
+
+## The future
+
+I'm very happy where we are at with the current version of the Bevy CLI.
+It already makes the development of a Bevy web app _a lot_ more approachable and less of a pain.
+
+Still, we are far from done and have more than enough features that we want to add in the future.
+
+### Automatic reloading
+
+Potentially the most useful feature would be to automatically reload the game on changes.
+This has multiple aspects to it and will likely be implemented in multiple iterations.
+
+First, there are two types of reloads, _cold_ and _hot_ reloads.
+With cold reloads, you use all state of the game, it's essentially the same as closing and re-opening the application.
+This is relatively easy to implement and at least saves you from killing the app and re-executing the command every time.
+
+Sometimes you can do even better though, with hot reloads.
+They try to persist as much of your game state as possible.
+You already know this from native Bevy development with the hot asset reloading.
+Unfortunately, this is not available for Bevy web apps yet, but with the Bevy CLI we control the local web server and are hence able to implement this in the future.
+Another very exciting development is Dioxus' `subsecond` which even allows you to hot reload _Rust code_. This technology is still in an early stage, but already has Bevy integration and is being successfully tested by early adopters.
+In the future, we also want to have this for web development, so we only need to fallback to cold reloads in rare cases.
+
+### Hooks
+
+No matter how many features we add, we will never be able to serve all possible use-cases that developers have out of the box.
+Trunk has a neat system to still provide a lot of flexibility: Hooks.
+They are a way to add custom commands that are called in different stages of the compilation pipeline.
+For example, you could define a hook to call a custom web app bundler after the JS bindings have been created and the assets bundled, to optimize them to be served on a web server.
