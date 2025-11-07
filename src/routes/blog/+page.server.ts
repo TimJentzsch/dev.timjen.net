@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { slugFromPath } from '$lib/slugFromPath';
 import type { BlogPost, MdsvexFile } from '$lib/blog';
-import { showDrafts } from '$lib/server/showDrafts';
+import { showDrafts } from '$lib/showDrafts';
 
 const MAX_POSTS = 10;
 
