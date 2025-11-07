@@ -5,22 +5,20 @@
 		published: boolean;
 	}
 
-	const { author, date, published }: Props = $props();
+	const { date, published }: Props = $props();
 	const formattedDate = $derived(new Date(date).toDateString());
 </script>
 
-<p>
-	<span class="author">{author}</span>
-	<span class="date">{formattedDate}</span>
+<p class="metadata">
+	<time datetime={date}>{formattedDate}</time>
 	{#if !published}
 		<span class="draft">(Draft)</span>
 	{/if}
 </p>
 
 <style>
-	.author {
-		font-weight: bold;
-		margin-right: var(--spacing1);
+	.metadata {
+		color: var(--muted-color);
 	}
 
 	.draft {
