@@ -2,8 +2,9 @@ import type { PageLoad } from './$types';
 import { slugFromPath } from '$lib/slugFromPath';
 import { error } from '@sveltejs/kit';
 import type { MdsvexResolver } from '$lib/blog';
+import { showDrafts } from '$lib/server/showDrafts';
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageLoad = async ({ params, url }) => {
 	const modules = import.meta.glob(`/src/blog/*.{md,svx,svelte.md}`);
 
 	let match: { path?: string; resolver?: MdsvexResolver } = {};
@@ -16,7 +17,7 @@ export const load: PageLoad = async ({ params }) => {
 
 	const post = await match?.resolver?.();
 
-	if (!post || (!post.metadata.published && !import.meta.env.DEV)) {
+	if (!post || (!post.metadata.published && !showDrafts(url))) {
 		throw error(404); // Couldn't resolve the post
 	}
 
