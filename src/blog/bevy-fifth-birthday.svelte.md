@@ -7,7 +7,7 @@ published: false
 ---
 
 The Bevy game engine is five years old.
-As part of the Bevy CLI working group,
+As part of the [Bevy CLI working group](https://discord.com/channels/691052431525675048/1278871953721262090),
 I spent the last year to improve Bevy's tooling.
 
 The Bevy CLI covers multiple areas:
@@ -102,7 +102,7 @@ Well, we need an `index.html` file as entry-point for the browser which then loa
 These files need to be served with a local web server.
 
 Fuck this, it's time to reach for some tooling to simplify this process.
-Luckily, we can reach for `trunk`, an amazing CLI tool for Rust web apps.
+Luckily, we can reach for [`trunk`](https://trunkrs.dev/), an amazing CLI tool for Rust web apps.
 
 ```sh
 $ trunk serve
@@ -208,7 +208,7 @@ With that out of the way, let me give you a more detailed overview of the featur
 ### Automatic tool installation
 
 This is not specific to the web, but especially useful in this context.
-We depend on many external tools like `wasm-bindgen` here, so making them easy to set up is very important for new users (and even convenient for experienced ones).
+We depend on many external tools like [`wasm-bindgen`](https://github.com/wasm-bindgen/wasm-bindgen) here, so making them easy to set up is very important for new users (and even convenient for experienced ones).
 When something is missing, the CLI will ask you if it should perform the installation automatically for you.
 
 ### Custom feature configuration
@@ -229,7 +229,7 @@ With the Bevy CLI, you can specify Rustflags separately for dev/release and nati
 
 As an experimental feature, we're trying to make it easier to build multi-threaded apps for the web. Right now, Bevy web apps are single threaded by default and quite hard to make multi-threaded, causing performance problems.
 Most noticeable, you can often get glitchy audio when the main thread is busy.
-Some plugins, like `bevy_seedling` are already experimenting with exposing multi-threaded functionality for the web to fix these issues.
+Some plugins, like [`bevy_seedling`](https://github.com/corvusprudens/bevy_seedling) are already experimenting with exposing multi-threaded functionality for the web to fix these issues.
 
 Unfortunately, _using_ this functionality is already a big pain.
 You have to set specific flags in Cargo, enable the correct Wasm features and configure the correct set of headers in your web server.
@@ -255,7 +255,7 @@ Sometimes you can do even better though, with hot reloads.
 They try to persist as much of your game state as possible.
 You already know this from native Bevy development with the hot asset reloading.
 Unfortunately, this is not available for Bevy web apps yet, but with the Bevy CLI we control the local web server and are hence able to implement this in the future.
-Another very exciting development is Dioxus' `subsecond` which even allows you to hot reload _Rust code_. This technology is still in an early stage, but already has Bevy integration and is being successfully tested by early adopters.
+Another very exciting development is [Dioxus' `subsecond`](https://docs.rs/subsecond/latest/subsecond/index.html) which even allows you to hot reload _Rust code_. This technology is still in an early stage, but already has Bevy integration and is being successfully tested by early adopters.
 In the future, we also want to have this for web development, so we only need to fallback to cold reloads in rare cases.
 
 ### Hooks
