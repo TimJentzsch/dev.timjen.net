@@ -47,4 +47,6 @@ pre {
 	padding: var(--spacing1);
 	/* Only scroll code blocks, not the whole page */
 	overflow-x: auto;
+
+	tab-size: 4;
 }
