@@ -1,10 +1,10 @@
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
 import { slugFromPath } from '$lib/slugFromPath';
 import { error } from '@sveltejs/kit';
 import type { MdsvexResolver } from '$lib/blog';
 import { showDrafts } from '$lib/server/showDrafts';
 
-export const load: PageLoad = async ({ params, url }) => {
+export const load: PageServerLoad = async ({ params, url }) => {
 	const modules = import.meta.glob(`/src/blog/*.{md,svx,svelte.md}`);
 
 	let match: { path?: string; resolver?: MdsvexResolver } = {};
