@@ -154,14 +154,14 @@ Instead, we can craft a tool to make 80% of games run, even run _well_, out of t
 
 Let's take a look at how that looks like, by installing the current Bevy CLI prototype:
 
-```
-TODO installation
+```sh
+$ cargo install --git=https://github.com/TheBevyFlock/bevy_cli --tag=cli-v0.1.0-alpha.2 --locked bevy_cli
 ```
 
 Now we can just execute
 
 ```sh
-bevy run web --open
+$ bevy run web --open
 ```
 
 And the game will open in our browser!
@@ -219,7 +219,11 @@ This is a bit hard/annoying to do with Cargo itself, so we added additional supp
 
 ### Rustflag merging
 
-TODO
+Sometimes, your project needs specific Rustflags to work properly.
+For example, in previous `getrandom` versions, you needed to configure the appropriate web backend via Rustflags.
+Unfortunately, Cargo does not perform any merging of Rustflags, if you specify them in your project's `Cargo.toml`, it will overwrite any flags you set on your user's configuration.
+
+With the Bevy CLI, you can specify Rustflags separately for dev/release and native/web and they will be merged with the Rustflags you configured in the usual Cargo configuration.
 
 ### Multi-threading support (experimental)
 
@@ -257,6 +261,55 @@ In the future, we also want to have this for web development, so we only need to
 ### Hooks
 
 No matter how many features we add, we will never be able to serve all possible use-cases that developers have out of the box.
-Trunk has a neat system to still provide a lot of flexibility: Hooks.
+Trunk has a neat system to still provide a lot of flexibility: [Hooks](https://trunkrs.dev/guide/build/hooks.html).
 They are a way to add custom commands that are called in different stages of the compilation pipeline.
 For example, you could define a hook to call a custom web app bundler after the JS bindings have been created and the assets bundled, to optimize them to be served on a web server.
+
+## Reflecting back
+
+Now I remembered that this was a birthday post, where we also reflect back on the last year.
+
+### The good
+
+Overall, I'm very happy where we are at with the current prototype.
+I like the design of the command line interface and I think that the functionality we have built is already a big upgrade from the previous workflow.
+Especially for game jams, the CLI can get you going quickly and makes it easy to publish a web version of your game, which will make it a lot easier for others to test your game.
+
+It's also been a fun project to work on, with amazing people collaborating together.
+There are many people that contributed and helped this project come together,
+but I have to give a special shoutout to my co-maintainers [@BD103](https://github.com/BD103) and [@DaAlbrecht](https://github.com/DaAlbrecht) for giving very useful feedback and implementing a ton of features, while being a pleasure to work with in general.
+Furthermore, special thanks go to the `bevy_new_2d` maintainers [@benfrankel](https://github.com/benfrankel) and [@janhohenheim](https://github.com/janhohenheim) who adopted the CLI prototype in its very early stages and helped to prioritize features and identify usability issues.
+
+### The bad
+
+Of course, not everything went perfectly.
+It's safe to say that we suffered a lot from feature creep.
+While it was an initial goal to build the "core architecture and at least one useful function",
+we now have multiple major features (project scaffolding, linting, web apps) with a broad set of functionalities supported.
+
+This will make the process of upstreaming harder.
+On one hand, maintainers want to perform a detailed review of the functionality and code, to ensure that it aligns with the overall vision of the Bevy project.
+On the other hand, we want to retain git history and code ownership as far as possible,
+so that we keep credit even for one-time contributors and make it easier to identify bugs in the future.
+
+Additionally, we probably could have done a better job following the intended purpose of working groups.
+[@NthTensor](https://github.com/NthTensor) has written a [detailed blogpost about Bevy's working groups](https://internet.place/content/working-groups/), giving more background about what they are, why they are useful and what can still be improved.
+Ours is running for a long time already and we should have pushed earlier to upstreaming and closing the working group.
+While we had a design document and it was partially written by maintainers, we could have done a better job of making the approval more formal and to get newer features approved that were not included in the initial revision of the document.
+
+## Conclusion
+
+The Bevy CLI prototype makes it a lot easier to build and run web apps with Bevy.
+If you want to try it out, please do and give us feedback:
+
+```sh
+$ cargo install --git https://github.com/TheBevyFlock/bevy_cli --tag cli-v0.1.0-alpha.2 --locked bevy_cli
+```
+
+It's also an easy project to contribute to:
+It's just "normal", straightforward Rust.
+Most of the CLI is just about calling other CLI tools with the correct arguments.
+If you're interested, [join our working group](https://discord.com/channels/691052431525675048/1278871953721262090)!
+
+For the next year, I'm hoping that we can upstream the CLI and make it an official tool.
+See you then!
