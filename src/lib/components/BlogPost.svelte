@@ -20,6 +20,10 @@
 </article>
 
 <style>
+	article {
+		width: 100%;
+	}
+
 	article > :global(:first-child) {
 		margin-top: 0;
 	}

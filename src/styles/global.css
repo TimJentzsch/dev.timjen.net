@@ -2,6 +2,9 @@
 	--spacing1: 0.5rem;
 	--spacing2: calc(2 * var(--spacing1));
 
+	/* Lines that run too long are harder to read */
+	--max-content-width: 40rem;
+
 	--radius: 0.5rem;
 }
 
@@ -23,6 +26,8 @@ body {
 		'Open Sans',
 		'Helvetica Neue',
 		sans-serif;
+
+	line-height: 1.6;
 }
 
 h1 {

@@ -12,12 +12,24 @@
 
 <Header path={data.path} />
 
-<main>
-	{@render children()}
-</main>
+<div class="main-container">
+	<main>
+		{@render children()}
+	</main>
+</div>
 
 <style>
+	.main-container {
+		overflow-x: hidden;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
 	main {
-		padding: var(--spacing2);
+		overflow-x: hidden;
+		max-width: var(--max-content-width);
+		width: 100%;
+		margin: var(--spacing1) var(--spacing2);
 	}
 </style>
