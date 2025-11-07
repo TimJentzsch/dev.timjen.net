@@ -2,15 +2,16 @@
 title: Bevy's fifth birthday
 description: The current state of the Bevy CLIs web features and how we got there.
 author: Tim Jentzsch
-date: 2025-09-08
+date: 2025-11-08
 published: false
 ---
 
-The Bevy game engine is five years old.
-As part of the [Bevy CLI working group](https://discord.com/channels/691052431525675048/1278871953721262090),
-I spent the last year to improve Bevy's tooling.
+The Bevy game engine is five years old and [@cart](https://github.com/cart) has [called for contributors to reflect on the past year](https://bevy.org/news/bevys-fifth-birthday/).
+Of course, I missed the deadline by a wide margin, but now I'm in too deep to discard this blog post.
 
-The Bevy CLI covers multiple areas:
+As part of the [Bevy CLI working group](https://discord.com/channels/691052431525675048/1278871953721262090), I spent the last year improving Bevy's tooling.
+
+The Bevy CLI prototype covers multiple areas:
 Creating new Bevy projects from templates,
 performing static analysis of your code with custom lints and
 building and running Bevy applications.
