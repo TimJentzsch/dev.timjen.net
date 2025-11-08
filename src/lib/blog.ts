@@ -21,7 +21,7 @@ export interface BlogPost {
  * @param maxPosts The maximum number of posts to load.
  * @returns The blog posts, sorted by date (newest first).
  */
-export async function loadPosts(url: URL, maxPosts: number = 10): Promise<BlogPost[]> {
+export async function loadPosts(url?: URL, maxPosts: number = 10): Promise<BlogPost[]> {
 	const modules = import.meta.glob(`/src/blog/*.{md,svx,svelte.md}`);
 
 	const postPromises = Object.entries(modules).map(([path, resolver]) =>
@@ -45,6 +45,6 @@ export async function loadPosts(url: URL, maxPosts: number = 10): Promise<BlogPo
 }
 
 /** @returns `true` if draft posts should be shown to the user, else `false`. */
-export function showDrafts(url: URL): boolean {
-	return import.meta.env.DEV || url.searchParams.has('showDrafts');
+export function showDrafts(url?: URL): boolean {
+	return import.meta.env.DEV || (url !== undefined && url.searchParams.has('showDrafts'));
 }

@@ -6,6 +6,7 @@
 	import '../styles/code.css';
 	import Header from '$lib/components/Header.svelte';
 	import type { LayoutProps } from './$types';
+	import Footer from '$lib/components/Footer.svelte';
 
 	let { data, children }: LayoutProps = $props();
 </script>
@@ -18,11 +19,14 @@
 	</main>
 </div>
 
+<Footer />
+
 <style>
 	.main-container {
 		overflow-x: hidden;
 		display: flex;
 		justify-content: center;
+		flex-grow: 1;
 		width: 100%;
 	}
 
