@@ -2,8 +2,8 @@
 title: Bevy's fifth birthday
 description: The current state of the Bevy CLIs web features and how we got there.
 author: Tim Jentzsch
-date: 2025-11-08
-published: false
+date: 2025-11-08T14:25
+published: true
 ---
 
 The Bevy game engine is five years old and [@cart](https://github.com/cart) has [called for contributors to reflect on the past year](https://bevy.org/news/bevys-fifth-birthday/).
