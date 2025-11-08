@@ -49,5 +49,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"feed": "^5.1.0"
 	}
 }
