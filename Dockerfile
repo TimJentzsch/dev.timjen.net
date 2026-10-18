@@ -1,5 +1,5 @@
 # Build step
-FROM node:22-alpine AS build
+FROM node:24-alpine AS build
 WORKDIR /app
 
 RUN corepack enable
@@ -13,7 +13,7 @@ RUN pnpm run build
 RUN pnpm prune --prod
 
 # Deployment step
-FROM node:22-alpine
+FROM node:24-alpine
 # <https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images>
 LABEL org.opencontainers.image.source=https://github.com/TimJentzsch/dev.timjen.net
 

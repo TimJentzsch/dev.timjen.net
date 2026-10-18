@@ -1,6 +1,8 @@
 <script lang="ts">
+	import type { ResolvedPathname } from '$app/types';
+
 	interface Props {
-		href: string;
+		href: ResolvedPathname;
 		path: string;
 		children?: any;
 	}
@@ -9,6 +11,7 @@
 	let isActive = $derived(path.startsWith(href));
 </script>
 
+<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- callers pass a resolve()d href -->
 <a {href} class:isActive> {@render children?.()}</a>
 
 <style>

@@ -6,7 +6,7 @@
 	const { title, description }: Props = $props();
 
 	const siteTitle = "tim's blog";
-	const formattedTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+	const formattedTitle = $derived(title ? `${title} | ${siteTitle}` : siteTitle);
 </script>
 
 <svelte:head>

@@ -1,11 +1,11 @@
-import { getFeed } from '$lib/server/feed';
+import { getFeed } from '#lib/server/feed.js';
 import type { RequestHandler } from '@sveltejs/kit';
 
 // Force this route to be pre-rendered, since it just generates a static file.
 export const prerender = true;
 
-export const GET: RequestHandler = async () => {
-	const feed = await getFeed();
+export const GET: RequestHandler = async ({ url }) => {
+	const feed = await getFeed(url.origin);
 
 	return new Response(feed.atom1(), {
 		headers: new Headers({ 'Content-Type': 'application/atom+xml' })

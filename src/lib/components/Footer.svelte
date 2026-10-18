@@ -1,14 +1,15 @@
 <script>
-	import { COPYRIGHT } from '$lib/properties';
+	import { resolve } from '$app/paths';
+	import { COPYRIGHT } from '#lib/properties.js';
 </script>
 
 <div class="footer-container">
 	<footer>
 		<nav>
 			<div>
-				<a href="/feed.xml" aria-label="RSS Feed">RSS</a>
+				<a href={resolve('/feed.xml')} aria-label="RSS Feed">RSS</a>
 				&nbsp;|&nbsp;
-				<a href="/atom.xml" aria-label="Atom Feed">Atom</a>
+				<a href={resolve('/atom.xml')} aria-label="Atom Feed">Atom</a>
 			</div>
 			<a href="https://github.com/TimJentzsch/dev.timjen.net/issues/new">Report an Issue</a>
 		</nav>

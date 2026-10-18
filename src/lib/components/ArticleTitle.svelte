@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	interface Props {
 		slug?: string;
 		title: string;
@@ -6,17 +8,17 @@
 
 	const { slug = '', title }: Props = $props();
 
-	const id = title
-		.toLowerCase()
-		.replace(/[^a-zA-Z ]/g, '')
-		.replace(/\s/g, '-');
-
-	const href = slug ? `/blog/${slug}` : '#' + id;
+	const id = $derived(
+		title
+			.toLowerCase()
+			.replace(/[^a-zA-Z ]/g, '')
+			.replace(/\s/g, '-')
+	);
 </script>
 
 {#if slug}
 	<h3 class="heading" {id}>
-		<a {href}>
+		<a href={resolve('/blog/[slug]', { slug })}>
 			{title}
 		</a>
 	</h3>
