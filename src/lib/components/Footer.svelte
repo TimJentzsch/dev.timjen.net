@@ -33,7 +33,7 @@
 		width: 100%;
 		max-width: var(--max-content-width);
 
-		margin: var(--spacing1) var(--spacing2);
+		margin: var(--spacing1) var(--page-gutter);
 	}
 
 	.copyright {

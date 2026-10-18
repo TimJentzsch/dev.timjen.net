@@ -21,3 +21,10 @@ test('home page shows social links', async ({ page }) => {
 	await expect(page.getByRole('link', { name: 'BlueSky' })).toBeVisible();
 	await expect(page.getByRole('link', { name: 'LinkedIn' })).toBeVisible();
 });
+
+test('home page shows project showcase', async ({ page }) => {
+	await page.goto('/');
+	for (const name of ['GameFeeder', 'Color ID', 'Stonefish Engine']) {
+		await expect(page.getByRole('link', { name })).toBeVisible();
+	}
+});

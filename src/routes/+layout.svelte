@@ -16,7 +16,7 @@
 {/if}
 
 <div class="main-container">
-	<main>
+	<main class:wide={data.path === '/'}>
 		{@render children()}
 	</main>
 </div>
@@ -36,6 +36,10 @@
 		overflow-x: hidden;
 		max-width: var(--max-content-width);
 		width: 100%;
-		margin: var(--spacing1) var(--spacing2);
+		margin: var(--spacing1) var(--page-gutter);
+	}
+
+	main.wide {
+		max-width: var(--max-wide-width);
 	}
 </style>
