@@ -11,7 +11,9 @@
 	let { data, children }: LayoutProps = $props();
 </script>
 
-<Header path={data.path} />
+{#if data.path !== '/'}
+	<Header path={data.path} />
+{/if}
 
 <div class="main-container">
 	<main>
