@@ -10,6 +10,11 @@
 	--radius: 0.5rem;
 }
 
+html {
+	/* Grow the text on larger screens */
+	font-size: clamp(100%, 0.75rem + 0.8vw, 150%);
+}
+
 body {
 	display: flex;
 	flex-direction: column;
