@@ -19,4 +19,5 @@ test('home page shows social links', async ({ page }) => {
 	await page.goto('/');
 	await expect(page.getByRole('link', { name: 'GitHub' })).toBeVisible();
 	await expect(page.getByRole('link', { name: 'BlueSky' })).toBeVisible();
+	await expect(page.getByRole('link', { name: 'LinkedIn' })).toBeVisible();
 });
