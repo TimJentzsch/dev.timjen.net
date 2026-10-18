@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import HeaderIcon from './HeaderIcon.svelte';
+	import SocialIcons from './SocialIcons.svelte';
 	import HeaderLink from './HeaderLink.svelte';
 
 	interface Props {
@@ -17,20 +17,7 @@
 			<div class="links">
 				<HeaderLink href={resolve('/blog')} {path}>blog</HeaderLink>
 			</div>
-			<div class="icons">
-				<HeaderIcon
-					alt="BlueSky"
-					href="https://bsky.app/profile/dev.timjen.net"
-					srcDark="/icons/bluesky-dark.svg"
-					srcLight="/icons/bluesky-light.svg"
-				/>
-				<HeaderIcon
-					alt="GitHub"
-					href="https://github.com/TimJentzsch"
-					srcDark="/icons/github-dark.svg"
-					srcLight="/icons/github-light.svg"
-				/>
-			</div>
+			<SocialIcons />
 		</nav>
 	</header>
 </div>
@@ -75,8 +62,7 @@
 		flex-grow: 1;
 	}
 
-	.links,
-	.icons {
+	.links {
 		display: flex;
 		flex-flow: row;
 		align-items: center;

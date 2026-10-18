@@ -14,3 +14,9 @@ test('blog page shows the header', async ({ page }) => {
 	await page.goto('/blog');
 	await expect(page.locator('header')).toBeVisible();
 });
+
+test('home page shows social links', async ({ page }) => {
+	await page.goto('/');
+	await expect(page.getByRole('link', { name: 'GitHub' })).toBeVisible();
+	await expect(page.getByRole('link', { name: 'BlueSky' })).toBeVisible();
+});
