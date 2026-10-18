@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import HeaderIcon from './HeaderIcon.svelte';
 	import HeaderLink from './HeaderLink.svelte';
 
@@ -11,10 +12,10 @@
 
 <div class="header-container">
 	<header>
-		<a id="websiteName" href="/">tim’s</a>
+		<a id="websiteName" href={resolve('/')}>tim’s</a>
 		<nav>
 			<div class="links">
-				<HeaderLink href="/blog" {path}>blog</HeaderLink>
+				<HeaderLink href={resolve('/blog')} {path}>blog</HeaderLink>
 			</div>
 			<div class="icons">
 				<HeaderIcon

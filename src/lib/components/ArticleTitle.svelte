@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	interface Props {
 		slug?: string;
 		title: string;
@@ -12,13 +14,11 @@
 			.replace(/[^a-zA-Z ]/g, '')
 			.replace(/\s/g, '-')
 	);
-
-	const href = $derived(slug ? `/blog/${slug}` : '#' + id);
 </script>
 
 {#if slug}
 	<h3 class="heading" {id}>
-		<a {href}>
+		<a href={resolve('/blog/[slug]', { slug })}>
 			{title}
 		</a>
 	</h3>

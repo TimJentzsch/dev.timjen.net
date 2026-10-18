@@ -8,7 +8,7 @@
 	const { srcLight, srcDark, alt, href }: Props = $props();
 </script>
 
-<a {href} target="_blank" rel="noopener noreferrer">
+<a {href} target="_blank" rel="external noopener noreferrer">
 	<picture>
 		{#if srcLight}
 			<source srcset={srcLight} media="(prefers-color-scheme: light)" />

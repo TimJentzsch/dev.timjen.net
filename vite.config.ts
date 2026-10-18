@@ -19,8 +19,12 @@ export default defineConfig({
 			// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 			adapter: adapter(),
 
-			// Used as `url.origin` while prerendering, e.g. for the absolute links in the feeds
-			paths: { origin: 'https://dev.timjen.net' }
+			paths: {
+				// Used as `url.origin` while prerendering, e.g. for the absolute links in the feeds
+				origin: 'https://dev.timjen.net',
+				// Root-relative links from resolve(), so HeaderLink can match them against the current path
+				relative: false
+			}
 		})
 	],
 	test: {
