@@ -1,5 +1,5 @@
 <script>
-	import { COPYRIGHT } from '$lib/properties';
+	import { COPYRIGHT } from '#lib/properties.js';
 </script>
 
 <div class="footer-container">

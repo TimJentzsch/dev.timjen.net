@@ -9,7 +9,7 @@
 	}
 
 	const { metadata, Content }: Props = $props();
-	const { title, author, date, published, description } = metadata;
+	const { title, author, date, published, description } = $derived(metadata);
 </script>
 
 <article>

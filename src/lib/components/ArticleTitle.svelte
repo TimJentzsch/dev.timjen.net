@@ -6,12 +6,14 @@
 
 	const { slug = '', title }: Props = $props();
 
-	const id = title
-		.toLowerCase()
-		.replace(/[^a-zA-Z ]/g, '')
-		.replace(/\s/g, '-');
+	const id = $derived(
+		title
+			.toLowerCase()
+			.replace(/[^a-zA-Z ]/g, '')
+			.replace(/\s/g, '-')
+	);
 
-	const href = slug ? `/blog/${slug}` : '#' + id;
+	const href = $derived(slug ? `/blog/${slug}` : '#' + id);
 </script>
 
 {#if slug}

@@ -1,4 +1,4 @@
-import { getFeed } from '$lib/server/feed';
+import { getFeed } from '#lib/server/feed.js';
 import type { RequestHandler } from '@sveltejs/kit';
 
 // Force this route to be pre-rendered, since it just generates a static file.

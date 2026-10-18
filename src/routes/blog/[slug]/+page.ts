@@ -1,8 +1,8 @@
 import type { PageLoad } from './$types';
-import { slugFromPath } from '$lib/slugFromPath';
+import { slugFromPath } from '#lib/slugFromPath.js';
 import { error } from '@sveltejs/kit';
-import type { MdsvexResolver } from '$lib/blog';
-import { showDrafts } from '$lib/blog';
+import type { MdsvexResolver } from '#lib/blog.js';
+import { showDrafts } from '#lib/blog.js';
 
 export const load: PageLoad = async ({ params, url }) => {
 	const modules = import.meta.glob(`/src/blog/*.{md,svx,svelte.md}`);

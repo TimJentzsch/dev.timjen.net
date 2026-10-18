@@ -1,8 +1,8 @@
-import { loadPosts } from '$lib/blog';
-import { AUTHOR, COPYRIGHT } from '$lib/properties';
+import { loadPosts } from '#lib/blog.js';
+import { AUTHOR, COPYRIGHT } from '#lib/properties.js';
 import { Feed } from 'feed';
 
-const baseUrl = import.meta.env.DEV ? 'http://localhost:5173/' : import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.DEV ? 'http://localhost:5173/' : '/';
 const blogUrl = baseUrl + 'blog';
 
 function createFeed(): Feed {

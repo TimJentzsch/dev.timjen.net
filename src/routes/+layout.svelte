@@ -4,9 +4,9 @@
 	import '../styles/colors.css';
 	import '../styles/global.css';
 	import '../styles/code.css';
-	import Header from '$lib/components/Header.svelte';
+	import Header from '#lib/components/Header.svelte';
 	import type { LayoutProps } from './$types';
-	import Footer from '$lib/components/Footer.svelte';
+	import Footer from '#lib/components/Footer.svelte';
 
 	let { data, children }: LayoutProps = $props();
 </script>
