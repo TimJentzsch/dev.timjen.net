@@ -2,18 +2,15 @@ import { loadPosts } from '#lib/blog.js';
 import { AUTHOR, COPYRIGHT } from '#lib/properties.js';
 import { Feed } from 'feed';
 
-const baseUrl = import.meta.env.DEV ? 'http://localhost:5173/' : '/';
-const blogUrl = baseUrl + 'blog';
-
-function createFeed(): Feed {
+function createFeed(origin: string, blogUrl: string): Feed {
 	return new Feed({
 		id: blogUrl,
 		title: "tim's blog",
 		description: "Tim's technical blog about game- and web development.",
 		language: 'en-US',
 		feedLinks: {
-			rss2: `${blogUrl}/feed.xml`,
-			atom: `${blogUrl}/atom.xml`
+			rss2: `${origin}/feed.xml`,
+			atom: `${origin}/atom.xml`
 		},
 		author: {
 			name: AUTHOR,
@@ -24,8 +21,9 @@ function createFeed(): Feed {
 	});
 }
 
-export async function getFeed(): Promise<Feed> {
-	const feed = createFeed();
+export async function getFeed(origin: string): Promise<Feed> {
+	const blogUrl = `${origin}/blog`;
+	const feed = createFeed(origin, blogUrl);
 	const posts = await loadPosts();
 
 	for (const post of posts) {
