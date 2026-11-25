@@ -11,7 +11,11 @@
 				&nbsp;|&nbsp;
 				<a href={resolve('/atom.xml')} aria-label="Atom Feed">Atom</a>
 			</div>
-			<a href="https://github.com/TimJentzsch/dev.timjen.net/issues/new">Report an Issue</a>
+			<div>
+				<a href={resolve('/privacy')}>Privacy Policy</a>
+				&nbsp;|&nbsp;
+				<a href="https://github.com/TimJentzsch/dev.timjen.net/issues/new">Report an Issue</a>
+			</div>
 		</nav>
 		<p class="copyright">{COPYRIGHT}</p>
 	</footer>
